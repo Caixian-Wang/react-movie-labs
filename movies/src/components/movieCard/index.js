@@ -12,6 +12,7 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid2";
 import img from '../../images/film-poster-placeholder.png'
+import { Link } from "react-router-dom";
 
 export default function MovieCard(props) {
   const movie = props.movie;
@@ -53,3 +54,8 @@ export default function MovieCard(props) {
     </Card>
   );
 }
+<Link to={`/movies/${movie.id}`}>
+          <Button variant="outlined" size="medium" color="primary">
+            More Info ...
+          </Button>
+        </Link>
