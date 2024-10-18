@@ -16,6 +16,10 @@ import { Link } from "react-router-dom";
 
 export default function MovieCard(props) {
   const movie = props.movie;
+  const handleAddToFavorite = (e) => {
+    e.preventDefault();
+    props.selectFavorite(movie.id);
+  };
   return (
     <Card>
       <CardHeader title={movie.title} sx={{ textWrap: "nowrap"}}/>
@@ -47,15 +51,12 @@ export default function MovieCard(props) {
         <IconButton aria-label="add to favorites" onClick={null}>
           <FavoriteIcon color="primary" fontSize="large" />
         </IconButton>
-        <Button variant="outlined" size="medium" color="primary">
-          More Info ...
-        </Button>
-      </CardActions>
-    </Card>
-  );
-}
-<Link to={`/movies/${movie.id}`}>
+        <Link to={`/movies/${movie.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>
         </Link>
+      </CardActions>
+    </Card>
+  );
+}
