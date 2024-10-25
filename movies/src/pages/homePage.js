@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PageTemplate from '../components/templateMovieListPage'
-import { getMovie, getMovieImages } from "../api/tmdb-api";
+import { getMovies } from "../api/tmdb-api";
 
 const HomePage = (props) => {
   const [movies, setMovies] = useState([]);
@@ -15,18 +15,10 @@ const HomePage = (props) => {
   };
 
   useEffect(() => {
-    getMovie(id).then((movie) => {
-      setMovie(movie);
+    getMovies().then(movies => {
+      setMovies(movies);
     });
-  }, [id]);
-
-  useEffect(() => {
-    getMovieImages(id).then((images) => {
-      setImages(images);
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
     <PageTemplate
       title='Discover Movies'
