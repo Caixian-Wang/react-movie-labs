@@ -1,4 +1,4 @@
-import React, {useState, useEffect}  from "react";
+import React, {useState, useEffect} from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
@@ -62,23 +62,23 @@ export default function FilterMoviesCard(props) {
           Filter the movies.
         </Typography>
         <TextField
-      sx={{...formControl}}
-      id="filled-search"
-      label="Search field"
-      type="search"
-      variant="filled"
-      value={props.titleFilter}
-      onChange={handleTextChange}
+         sx={{...formControl}}
+         id="filled-search"
+         label="Search field"
+         type="search"
+         variant="filled"
+         value={props.titleFilter}
+         onChange={handleTextChange}
     />
         <FormControl sx={{...formControl}}>
           <InputLabel id="genre-label">Genre</InputLabel>
           <Select
-    labelId="genre-label"
-    id="genre-select"
-    defaultValue=""
-    value={props.genreFilter}
-    onChange={handleGenreChange}
-  >
+           labelId="genre-label"
+           id="genre-select"
+           defaultValue=""
+           value={props.genreFilter}
+           onChange={handleGenreChange}
+     >
             {genres.map((genre) => {
               return (
                 <MenuItem key={genre.id} value={genre.id}>

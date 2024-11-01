@@ -68,6 +68,7 @@ export const getMovie = (args) => {
       throw error
    });
   };
+
   export const getMovieReviews = ({ queryKey }) => {
     const [, idPart] = queryKey;
     const { id } = idPart;
@@ -84,4 +85,14 @@ export const getMovie = (args) => {
     .catch((error) => {
       throw error
    });
+  };
+
+  export const getProductionCountries = () => {
+    return fetch(
+      "https://api.themoviedb.org/3/movie/production_countries/list?api_key=" +
+        process.env.REACT_APP_TMDB_KEY +
+        "&language=en-US"
+    )
+      .then(res => res.json())
+      .then(json => json.production_countries);
   };
